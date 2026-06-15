@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 const healthRoutes = require('./routes/healthRoutes');
+const authRoutes = require('./routes/authRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.json());
 
 app.use('/', healthRoutes);
 app.use('/api', healthRoutes);
+app.use('/api/auth', authRoutes)
 
 app.use((req, res) => {
   return res.status(404).json({ message: 'Route not found' });
