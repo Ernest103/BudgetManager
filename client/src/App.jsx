@@ -4,6 +4,7 @@ import SignUpPage from './pages/SignUpPage';
 import DashboardPage from './pages/DashboardPage';
 import RequireAuth from './components/RequireAuth';
 import { useAuth } from './components/AuthContext';
+import PageHeader from './components/PageHeader';
 import './App.css';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
   const isAuthed = status === 'authenticated';
 
   return (
-    <div className="page-shell">
+    <div className={isAuthed ? 'page-shell page-shell-authed' : 'page-shell'}>
+      {isAuthed ? <PageHeader /> : null}
       <Routes>
         <Route path="/" element={<Navigate to={isAuthed ? '/dashboard' : '/login'} replace />} />
         <Route path="/login" element={isAuthed ? <Navigate to="/dashboard" replace /> : <LoginPage />} />

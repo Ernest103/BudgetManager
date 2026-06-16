@@ -83,3 +83,7 @@ export async function validateSession() {
         return { authenticated: false, user: null };
     }
 }
+
+export function signOut() {
+    localStorage.removeItem("token");
+}
