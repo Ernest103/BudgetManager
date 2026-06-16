@@ -31,10 +31,11 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="message-card">
+    <main className="message-card auth-card">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
+      <form onSubmit={handleSubmit} className="auth-form">
         <input
+          className="form-control"
           type="email"
           placeholder="Email"
           value={email}
@@ -42,21 +43,22 @@ export default function LoginPage() {
           required
         />
         <input
+          className="form-control"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" disabled={submitting}>
+        <button type="submit" disabled={submitting} className="form-submit">
           {submitting ? 'Signing in...' : 'Sign in'}
         </button>
       </form>
 
-      {error ? <p style={{ color: '#b91c1c', marginTop: '0.75rem' }}>{error}</p> : null}
+      {error ? <p className="form-error">{error}</p> : null}
 
-      <p style={{ marginTop: '1rem' }}>
-        No account? <Link to="/signup">Sign up</Link>
+      <p className="form-caption">
+        No account? <Link to="/signup" className="text-link">Sign up</Link>
       </p>
     </main>
   );

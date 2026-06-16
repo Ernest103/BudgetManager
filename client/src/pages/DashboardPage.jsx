@@ -16,7 +16,7 @@ export default function DashboardPage() {
   return (
     <main className="message-card">
       <h1>{greeting}, {name}</h1>
-      <p style={{ marginTop: '0.75rem' }}>
+      <p className="dashboard-note">
         TODO: Add dashboard widgets.
       </p>
     </main>

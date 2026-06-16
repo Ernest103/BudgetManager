@@ -11,7 +11,7 @@ function App() {
   const { status } = useAuth();
 
   if (status === 'loading') {
-    return <div className="page-shell"><p>Loading...</p></div>;
+    return <div className="page-shell"><p className="loading-indicator">Loading...</p></div>;
   }
 
   const isAuthed = status === 'authenticated';
